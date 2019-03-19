@@ -1,0 +1,130 @@
+{
+  "configVersion": 1,
+  "timestamp": 1552963362213,
+  "index": "/index.html",
+  "assetGroups": [
+    {
+      "name": "app",
+      "installMode": "prefetch",
+      "updateMode": "prefetch",
+      "urls": [
+        "/es2015-polyfills.c5dd28b362270c767b34.js",
+        "/favicon.ico",
+        "/index.html",
+        "/main.6c07b09641a267c520a2.js",
+        "/polyfills.8bbb231b43165d65d357.js",
+        "/runtime.26209474bfa8dc87a77c.js",
+        "/styles.3ff695c00d717f2d2a11.css"
+      ],
+      "patterns": []
+    },
+    {
+      "name": "assets",
+      "installMode": "lazy",
+      "updateMode": "prefetch",
+      "urls": [
+        "/assets/icons/android-chrome-192x192.png",
+        "/assets/icons/android-chrome-512x512.png",
+        "/assets/icons/apple-touch-icon-114x114-precomposed.png",
+        "/assets/icons/apple-touch-icon-114x114.png",
+        "/assets/icons/apple-touch-icon-120x120-precomposed.png",
+        "/assets/icons/apple-touch-icon-120x120.png",
+        "/assets/icons/apple-touch-icon-144x144-precomposed.png",
+        "/assets/icons/apple-touch-icon-144x144.png",
+        "/assets/icons/apple-touch-icon-152x152-precomposed.png",
+        "/assets/icons/apple-touch-icon-152x152.png",
+        "/assets/icons/apple-touch-icon-180x180-precomposed.png",
+        "/assets/icons/apple-touch-icon-180x180.png",
+        "/assets/icons/apple-touch-icon-57x57-precomposed.png",
+        "/assets/icons/apple-touch-icon-57x57.png",
+        "/assets/icons/apple-touch-icon-60x60-precomposed.png",
+        "/assets/icons/apple-touch-icon-60x60.png",
+        "/assets/icons/apple-touch-icon-72x72-precomposed.png",
+        "/assets/icons/apple-touch-icon-72x72.png",
+        "/assets/icons/apple-touch-icon-76x76-precomposed.png",
+        "/assets/icons/apple-touch-icon-76x76.png",
+        "/assets/icons/apple-touch-icon-precomposed.png",
+        "/assets/icons/apple-touch-icon.png",
+        "/assets/icons/browserconfig.xml",
+        "/assets/icons/favicon-16x16.png",
+        "/assets/icons/favicon-32x32.png",
+        "/assets/icons/favicon.ico",
+        "/assets/icons/icon-128x128.png",
+        "/assets/icons/icon-144x144.png",
+        "/assets/icons/icon-152x152.png",
+        "/assets/icons/icon-192x192.png",
+        "/assets/icons/icon-384x384.png",
+        "/assets/icons/icon-512x512.png",
+        "/assets/icons/icon-72x72.png",
+        "/assets/icons/icon-96x96.png",
+        "/assets/icons/mstile-150x150.png",
+        "/assets/icons/safari-pinned-tab.svg"
+      ],
+      "patterns": []
+    }
+  ],
+  "dataGroups": [],
+  "hashTable": {
+    "/assets/icons/android-chrome-192x192.png": "6aecb099a8be127f1432420ac43d5cab95d7823d",
+    "/assets/icons/android-chrome-512x512.png": "7150534adb97c694e3f70f69ebeffe6183f4761d",
+    "/assets/icons/apple-touch-icon-114x114-precomposed.png": "216feab3fc7bf44a1aeef1d69553aecd20975f77",
+    "/assets/icons/apple-touch-icon-114x114.png": "52e58018e9c2bc8cfe698239f785bca350b03820",
+    "/assets/icons/apple-touch-icon-120x120-precomposed.png": "ea911a820983273b083dded8c15507b3cd6775ac",
+    "/assets/icons/apple-touch-icon-120x120.png": "c3343c15644fea14c17ebbacdc5ba576ecb5cc18",
+    "/assets/icons/apple-touch-icon-144x144-precomposed.png": "84a507a45c1628d201d90d07c6a9c84cd44a69e4",
+    "/assets/icons/apple-touch-icon-144x144.png": "5ac42524d2fb5d1e2e70b106794b169a85ee68f5",
+    "/assets/icons/apple-touch-icon-152x152-precomposed.png": "57cb67b8949ee93a02b193a40077a9e11e04798a",
+    "/assets/icons/apple-touch-icon-152x152.png": "1e5ebc8ed891adee684e13af88b7a855f946775b",
+    "/assets/icons/apple-touch-icon-180x180-precomposed.png": "73f6a40352d09b4a14097154586eeb1c6e9eb4a5",
+    "/assets/icons/apple-touch-icon-180x180.png": "fae035416e414f2f53f8a785811d5695ee8d97d1",
+    "/assets/icons/apple-touch-icon-57x57-precomposed.png": "36733be5d7df6362483079d937fb8f5fed104ac6",
+    "/assets/icons/apple-touch-icon-57x57.png": "75c38386f19cef9328e244cde428448e786ed5e7",
+    "/assets/icons/apple-touch-icon-60x60-precomposed.png": "fa8748e950ca78058516d616cf85cb059ef7cee7",
+    "/assets/icons/apple-touch-icon-60x60.png": "cd56a8315c0782de155afb5f5ffe24cef69b5436",
+    "/assets/icons/apple-touch-icon-72x72-precomposed.png": "ae125903ba1410e0c738f5c4877944ecbd752f84",
+    "/assets/icons/apple-touch-icon-72x72.png": "e1b9b46bd1327af9e8499fc462341aae52569947",
+    "/assets/icons/apple-touch-icon-76x76-precomposed.png": "60092011fc01be4211f0d5cab3bc31c415bc35ad",
+    "/assets/icons/apple-touch-icon-76x76.png": "3728d35a909655d21a7a8f494c9407aebc865bec",
+    "/assets/icons/apple-touch-icon-precomposed.png": "73f6a40352d09b4a14097154586eeb1c6e9eb4a5",
+    "/assets/icons/apple-touch-icon.png": "fb650a3f0d8fc12f98c2ebf8fa802e13cabe8dc7",
+    "/assets/icons/browserconfig.xml": "0143eee6212cf0503210c193a924c9cea4a68870",
+    "/assets/icons/favicon-16x16.png": "7779e4396f9373a3bf787a13b00e5fd2dee888f7",
+    "/assets/icons/favicon-32x32.png": "70a7a05638593c5fd6abb2af2871c1d263816191",
+    "/assets/icons/favicon.ico": "7a764abcd91c3caa41be100d42d0bde5f64a2ecd",
+    "/assets/icons/icon-128x128.png": "dae3b6ed49bdaf4327b92531d4b5b4a5d30c7532",
+    "/assets/icons/icon-144x144.png": "b0bd89982e08f9bd2b642928f5391915b74799a7",
+    "/assets/icons/icon-152x152.png": "7479a9477815dfd9668d60f8b3b2fba709b91310",
+    "/assets/icons/icon-192x192.png": "1abd80d431a237a853ce38147d8c63752f10933b",
+    "/assets/icons/icon-384x384.png": "329749cd6393768d3131ed6304c136b1ca05f2fd",
+    "/assets/icons/icon-512x512.png": "559d9c4318b45a1f2b10596bbb4c960fe521dbcc",
+    "/assets/icons/icon-72x72.png": "c457e56089a36952cd67156f9996bc4ce54a5ed9",
+    "/assets/icons/icon-96x96.png": "3914125a4b445bf111c5627875fc190f560daa41",
+    "/assets/icons/mstile-150x150.png": "3acb97e097c2fd845bf1de7ab3a65f17117f91a4",
+    "/assets/icons/safari-pinned-tab.svg": "4bf8a0fb0760d0a4b3d1854302c782e1c98723df",
+    "/es2015-polyfills.c5dd28b362270c767b34.js": "b7a81c61d32b0b12737f0c13f45973ba391cd7f9",
+    "/favicon.ico": "84161b857f5c547e3699ddfbffc6d8d737542e01",
+    "/index.html": "81ba33d72236dc90e296f2a1091fabbbb0c66f58",
+    "/main.6c07b09641a267c520a2.js": "0c5225b69dae798e201cf9f74f5b85f6b40bbd8e",
+    "/polyfills.8bbb231b43165d65d357.js": "ffa449995bf2eba2ccd0a002417214f7eb75e7b5",
+    "/runtime.26209474bfa8dc87a77c.js": "b62956c2192bfe5516d6374e753773901ed50ec5",
+    "/styles.3ff695c00d717f2d2a11.css": "da39a3ee5e6b4b0d3255bfef95601890afd80709"
+  },
+  "navigationUrls": [
+    {
+      "positive": true,
+      "regex": "^\\/.*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*\\.[^/]*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*__[^/]*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*__[^/]*\\/.*$"
+    }
+  ]
+}

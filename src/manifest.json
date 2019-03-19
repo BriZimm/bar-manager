@@ -1,0 +1,28 @@
+{
+    "name": "Bar Manager",
+    "short_name": "Bar Man",
+    "scope": "/",
+    "start_url": "/",
+    "display": "standalone",
+    "description": "Bar Management system for the average Home Bar enthusiast.",
+    "theme_color": "#3e89c3",
+    "background_color": "#3e89c3",
+    "orientation": "portrait",
+    "serviceworker": {
+        "src": "service-worker.js",
+        "scope": "/",
+        "update_via_cache": "none"
+      },
+    "icons": [
+        {
+            "src": "/assets/icons/android-chrome-192x192.png",
+            "sizes": "192x192",
+            "type": "image/png"
+        },
+        {
+            "src": "/assets/icons/android-chrome-512x512.png",
+            "sizes": "512x512",
+            "type": "image/png"
+        }
+    ]
+}
