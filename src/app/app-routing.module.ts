@@ -6,6 +6,7 @@ import { LiquorDbComponent } from './liquor-db/liquor-db.component';
 import { HomeComponent } from './home/home.component';
 
 const routes: Routes = [
+    {path: '', component: HomeComponent },
     {path: 'home', component: HomeComponent },
     {path: 'inventory', component: InventoryComponent },
     {path: 'recipes', component: RecipeComponent },
