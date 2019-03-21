@@ -1,0 +1,71 @@
+.home-container {
+    display: block;
+    margin: .5em 1em 0 .5em;
+
+    .whats-new {
+        display: block;
+        padding: 0 .5em .5em .5em;
+        min-width: 200px;
+        // max-width: 376px;
+        height: 100%;
+        background-color: #9BC8EA;
+        border-radius: 3px;
+        border: 1px solid #3e89c3;;
+    }
+    
+    .details {
+        display: block;
+        padding: 0 .5em .5em .5em;
+        min-width: 250px;
+        height: 100%;
+        background-color: #9BC8EA;
+        border-radius: 3px;
+        border: 1px solid #3e89c3;
+    }
+
+    .logo {
+        display: block;
+        margin: auto;
+        padding-top: 15px;
+    }
+}
+
+@media screen and (max-width: 1080px) {
+    .ui-md-8 {
+        width: 75%;
+    }
+
+    .ui-md-4 {
+        width: 25%;
+    }
+}
+
+@media (min-width: 721px) and (max-width: 880px) {
+    .ui-md-8 {
+        width: 70%;
+    }
+
+    .ui-md-4 {
+        width: 30%;
+    }
+}
+
+@media (min-width: 600px) and (max-width: 720px) {
+    .ui-md-8 {
+        width: 60%;
+    }
+
+    .ui-md-4 {
+        width: 40%;
+    }
+}
+
+@media screen and (max-width: 599px) {
+    .ui-md-8 {
+        width: 100%;
+    }
+
+    .ui-md-4 {
+        width: 100%;
+    }
+}
