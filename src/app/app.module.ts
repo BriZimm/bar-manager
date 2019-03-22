@@ -9,8 +9,8 @@ import { MenuComponent } from './menu/menu.component';
 import { MenuModule } from 'primeng/menu';
 import { RecipeComponent } from './recipe/recipe.component';
 import { InventoryComponent } from './inventory/inventory.component';
-import { LiquorDbComponent } from './liquor-db/liquor-db.component';
 import { HomeComponent } from './home/home.component';
+import { LiquorDbModule } from './liquor-db/liquor-db.module';
 
 @NgModule({
   declarations: [
@@ -18,19 +18,19 @@ import { HomeComponent } from './home/home.component';
     MenuComponent,
     RecipeComponent,
     InventoryComponent,
-    LiquorDbComponent,
     HomeComponent
   ],
   imports: [
     BrowserModule,
     NoopAnimationsModule,
-    AppRoutingModule,
     ServiceWorkerModule
             .register('ngsw-worker.js',
                         {
                             enabled: environment.production
                         }),
-    MenuModule
+    MenuModule,
+    LiquorDbModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]

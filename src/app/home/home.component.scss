@@ -1,26 +1,24 @@
-.home-container {
+@import '../../assets/sass/variables';
+
+.content-container {
     display: block;
-    margin: .5em 1em 0 .5em;
 
     .whats-new {
         display: block;
         padding: 0 .5em .5em .5em;
-        min-width: 200px;
-        // max-width: 376px;
         height: 100%;
-        background-color: #9BC8EA;
-        border-radius: 3px;
-        border: 1px solid #3e89c3;;
+        background-color: $appSecondaryColor;
+        border-radius: $appBdrRadius;
+        border: 1px solid $appPrimaryColor;
     }
     
     .details {
         display: block;
         padding: 0 .5em .5em .5em;
-        min-width: 250px;
         height: 100%;
-        background-color: #9BC8EA;
-        border-radius: 3px;
-        border: 1px solid #3e89c3;
+        background-color: $appSecondaryColor;
+        border-radius: $appBdrRadius;
+        border: 1px solid $appPrimaryColor;
     }
 
     .logo {
