@@ -1,1 +1,141 @@
 @import '../../assets/sass/variables';
+
+// Rows
+.dataRow {
+    padding: 2em 2em 2em 2em;
+    border-bottom: 1px solid lightgrey;
+
+    .inventory-image {
+        position: relative;
+        float: left;
+        max-width:  60px;
+        max-height: 80px;
+    }
+
+    .inventory-title {
+        font-weight: bold;
+        color: $appPrimaryColor;
+    }
+
+    .item-information {
+        display: table;
+        position: relative;
+        float: left;
+        width: 95%;
+        margin-top: 4px;
+    
+        .info-header {
+            display: table-header-group;
+            font-weight: bold;
+        }
+        .info-body {
+            display: table-row;
+        }
+    
+        .size {
+            display: table-cell;
+            width: 10%;
+            text-align: center;
+        }
+        .amount-left {
+            display: table-cell;
+            width: 50px;
+            text-align: center;
+        }
+        .ui-slider .ui-slider-horizontal {
+            width: 200px !important;
+        }
+        .upc {
+            display: table-cell;
+            width: 20%;
+            text-align: center;
+        }
+        .add-to-shop {
+            display: table-cell;
+            width: 25px;
+            text-align: center;
+        }
+    }
+}
+
+
+
+// Grids
+.grid-container {
+    border: 1px solid lightgrey;
+    border-radius: 4px;
+    // margin-right: 5px;
+    // max-width: 250px;
+    padding:.5em;
+
+    .inventory-image {
+        max-width:  30px;
+        max-height: 50px;
+    }
+    .info-data {
+        .size,
+        .upc,
+        .amount,
+        .add-to-shop {
+            width: 100%;
+            text-align: left;
+        }
+        .label {
+            float: left;
+            width: 30%;
+            text-align: right;
+            margin-right: 3px;
+            color: $appPrimaryColor;
+        }
+        .amount {
+            .value {
+                height: 110px;
+                text-align: right;
+
+                .bottle-for-slider {
+                    position: relative;
+                    left: -108px;
+                    top: -1px;
+                    z-index: 501;
+                    pointer-events: none;
+                }
+            }
+        }
+    }
+
+    .slider {
+        position: relative;
+        top: -125px;
+        width: 30px !important;
+        margin: auto !important;
+        height: 105px !important;
+        margin-top: 10px !important;
+    }
+
+    
+
+    // .ui-slider-vertical {
+    //     width: 30px !important;
+    //     margin: auto !important;
+    //     height: 80px !important;
+    //     margin-top: 10px !important;
+    // }
+
+    // .slider {
+    //     margin: 0 !important;
+    //     height: 75px !important;
+    //     width: 6px !important;
+    // }
+    
+    // .ui-slider-vertical {
+    //     width: .8em;
+    //     height: 80px;
+    // }
+    
+    // Thick slider then put an image in front of it.
+    // body .ui-slider.ui-slider-vertical {
+    //     width: 30px;
+    //     margin: auto;
+    // }
+}
+

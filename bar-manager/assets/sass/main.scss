@@ -1,6 +1,4 @@
 @import "variables";
-@import '../../../node_modules/primeng/resources/themes/nova-light/theme.css';
-@import '../../../node_modules/primeng/resources/primeng.min.css';
 
 body,
 html {
@@ -14,6 +12,8 @@ html {
     width: 100%;
     padding: $appPaddingValues;
 }
+
+
 
 .ui-menu {
     top: 35px !important;

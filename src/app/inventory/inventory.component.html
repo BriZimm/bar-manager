@@ -1,3 +1,75 @@
-<p>
-  inventory works!
-</p>
+<p-dataView [value]="inventoryItems">
+    <p-header>
+        <p-dataViewLayoutOptions></p-dataViewLayoutOptions>
+    </p-header>
+    <p-footer>
+        <p-dataViewLayoutOptions></p-dataViewLayoutOptions>
+    </p-footer>
+
+    <ng-template let-item pTemplate="listItem">
+        <div class="dataRow">
+            <img class="inventory-image" [src]="item.itemImage" />
+            <div class="inventory-title">
+                {{item.itemName}}
+            </div>
+            <div class="item-information">
+                <div class="info-header">
+                    <span class="size">Size</span>
+                    <span class="amount-left">Amount</span>
+                    <span class="upc">UPC Code</span>
+                    <span class="add-to-shop">Purchase</span>
+                </div>
+                <div class="info-body">
+                    <span class="size">{{item.itemSize}}</span>
+                    <span class="amount-left"><p-slider [(ngModel)]="item.itemAmountPercent" [min]="0" [max]="100"></p-slider></span>
+                    <span class="upc">{{item.itemUpc}}</span>
+                    <span class="add-to-shop"><p-checkbox [(ngModel)]="item.shop" binary="true"></p-checkbox></span>
+                </div>
+            </div>    
+        </div>
+    </ng-template>
+    <ng-template let-item pTemplate="gridItem">
+        <div class="ui-g-12 ui-md-3 grid-container">
+            <p-panel [header]="item.itemName" [style]="{'text-align':'center'}">
+                <img class="inventory-image" [src]="item.itemImage" />
+                <div class="info-data">
+                    <div class="size">
+                        <div class="label">Size:</div>
+                        <div class="value">{{item.itemSize}}</div>
+                    </div>
+                    <div class="upc">
+                        <div class="label">UPC Code:</div>
+                        <div class="value">{{item.itemUpc}}</div>
+                    </div>
+                    <div class="amount">
+                        <div class="label">Amount:</div>
+                        <div class="value">
+                            <img class="bottle-for-slider" src="../../assets/images/bottle-slider.gif" unselectable="on"/>
+                            <p-slider 
+                                styleClass="slider"
+                                [(ngModel)]="item.itemAmountPercent"
+                                [min]="0"
+                                [max]="100"
+                                orientation="vertical"
+                                animate=true>
+                            </p-slider>
+                        </div>
+                    </div>
+                    <div class="add-to-shop">
+                        <div class="label">Purchase:</div>
+                        <div class="value">
+                            <p-checkbox 
+                                [(ngModel)]="item.shop"
+                                binary="true">
+                            </p-checkbox>
+                        </div>
+                    </div>
+                    <!-- <span class="label">Size:</span><span class="size">{{item.itemSize}}</span>
+                    <span class="label">UPC Code:</span><span class="upc">{{item.itemUpc}}</span>
+                    <span class="label">Amount:</span><span class="amount-left"><p-slider styleClass="slider" [(ngModel)]="item.itemAmountPercent" [min]="0" [max]="100" orientation="vertical"></p-slider></span>
+                    <span class="label">Purchase:</span><span class="add-to-shop"><p-checkbox [(ngModel)]="item.shop" binary="true"></p-checkbox></span> -->
+                </div>
+            </p-panel>
+        </div>
+    </ng-template>
+</p-dataView>
