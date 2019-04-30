@@ -3,9 +3,8 @@ import { AddRecipeComponent } from './add-recipe/add-recipe.component';
 import { IRecipe } from 'src/shared/classes/IRecipe';
 import { ApiService } from 'src/services/api.service';
 import { mergeMap } from 'rxjs/operators';
-import { IIngredientItem } from 'src/shared/classes/IIngredientItem';
-import { IAlcohol } from 'src/shared/classes/IAlcohol';
 import { IIngredient } from 'src/shared/classes/IIngredient';
+import { ViewRecipeComponent } from './view-recipe/view-recipe.component';
 
 @Component({
 // tslint:disable-next-line: component-selector
@@ -19,7 +18,11 @@ export class RecipeComponent implements OnInit {
 
     @ViewChild(AddRecipeComponent)
     addRecipeComponent: AddRecipeComponent;
+    @ViewChild(ViewRecipeComponent)
+    viewRecipeComponent: ViewRecipeComponent;
+
     recipes: IRecipe[];
+    selectedRecipe: IRecipe;
     categoryId: number;
     alcoholId: number;
 
@@ -29,6 +32,11 @@ export class RecipeComponent implements OnInit {
 
     addRecipe($event) {
         this.addRecipeComponent.show();
+    }
+
+    viewRecipe(recipe) {
+        this.selectedRecipe = recipe;
+        this.viewRecipeComponent.show();
     }
 
     getRecipes() {

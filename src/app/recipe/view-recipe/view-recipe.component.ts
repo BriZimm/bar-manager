@@ -1,15 +1,27 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { IRecipe } from 'src/shared/classes/IRecipe';
 
 @Component({
-  selector: 'app-view-recipe',
-  templateUrl: './view-recipe.component.html',
-  styleUrls: ['./view-recipe.component.scss']
+    // tslint:disable-next-line: component-selector
+    selector: 'bm-view-recipe',
+    templateUrl: './view-recipe.component.html',
+    styleUrls: ['./view-recipe.component.scss']
 })
 export class ViewRecipeComponent implements OnInit {
+    @Input() recipe: IRecipe;
 
-  constructor() { }
+    visible = false;
 
-  ngOnInit() {
-  }
+    constructor() { }
 
+    ngOnInit() {
+    }
+
+    hide() {
+        this.visible = false;
+    }
+
+    show() {
+        this.visible = true;
+    }
 }

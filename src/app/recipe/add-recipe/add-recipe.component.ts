@@ -65,7 +65,7 @@ export class AddRecipeComponent implements OnInit {
         this.initializeValues();
     }
 
-    reset(event) {
+    reset() {
         this.blankForm();
     }
 

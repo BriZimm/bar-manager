@@ -1,4 +1,5 @@
 <bm-add-recipe></bm-add-recipe>
+<bm-view-recipe [(recipe)]="selectedRecipe"></bm-view-recipe>
 <p-button class="add-recipe-btn" label="Add Recipe" (click)="addRecipe($event)"></p-button>
 
 <div class="recipe-card-container ui-g-12">
@@ -6,7 +7,8 @@
         <p-card
             header="{{recipe.name}}"
             subheader="{{recipe.mainAlcohol}}"
-            styleClass="ui-card-shadow">
+            styleClass="ui-card-shadow"
+            (click)="viewRecipe(recipe)">
             <p-header>
                 <img class="card-image" src="https://bmimages.blob.core.windows.net/recipe-images/{{recipe.recipeImage}}">
             </p-header>
