@@ -1,0 +1,21 @@
+import { IGlass } from './IGlass';
+import { IIngredientItem } from './IIngredientItem';
+import { IRecipeCategory } from './IRecipeCategory';
+import { IIngredient } from './IIngredient';
+
+export interface IRecipe {
+    id: number;
+    name: string;
+    recipeImage: string;
+    recipeCategory: IRecipeCategory;
+    tags?: string;
+    glass: IGlass;
+    description: string;
+    instructions: string;
+    ingredients: IIngredientItem[] | IIngredient[];
+    dateCreated?: string;
+    dateModified?: string;
+    glassID?: number;
+    recipeCategoryID?: number;
+    mainAlcohol?: string;
+}

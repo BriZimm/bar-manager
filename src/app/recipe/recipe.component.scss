@@ -1,1 +1,49 @@
 @import '../../assets/sass/variables';
+
+.add-recipe-btn {
+    float: right;
+    margin-right: 40px;
+}
+
+.ui-card-shadow {
+    border: 1px solid $appPrimaryColor !important;
+    height: 325px !important;
+
+}
+
+.card-image {
+    max-height: 200px !important;
+    max-width: 200px !important;
+}
+
+.ui-card-title {
+    font-size: 1em !important;
+}
+
+.recipe-description {
+    overflow: hidden;
+    position: relative; 
+    font-size: .8em !important;
+    line-height: 1.2em;
+    max-height: 3.6em; 
+    text-align: justify;  
+    margin-right: -1em;
+    padding-right: 1em;
+  }
+  .recipe-description:before {
+    content: '...';
+    position: absolute;
+    right: 0;
+    bottom: 0;
+  }
+  
+  .recipe-description:after {
+    content: '';
+    position: absolute;
+    right: 0;
+    width: 1em;
+    height: 1em;
+    margin-top: 0.2em;
+    background: white;
+  }
+

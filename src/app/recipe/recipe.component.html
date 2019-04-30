@@ -1,3 +1,16 @@
-<p>
-  recipe works!
-</p>
+<bm-add-recipe></bm-add-recipe>
+<p-button class="add-recipe-btn" label="Add Recipe" (click)="addRecipe($event)"></p-button>
+
+<div class="recipe-card-container ui-g-12">
+    <div *ngFor="let recipe of recipes" class="ui-g-2">
+        <p-card
+            header="{{recipe.name}}"
+            subheader="{{recipe.mainAlcohol}}"
+            styleClass="ui-card-shadow">
+            <p-header>
+                <img class="card-image" src="https://bmimages.blob.core.windows.net/recipe-images/{{recipe.recipeImage}}">
+            </p-header>
+            <div class="recipe-description">{{recipe.description}}</div>
+        </p-card>
+    </div>
+</div>

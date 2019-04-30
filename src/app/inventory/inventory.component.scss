@@ -83,36 +83,34 @@
         .label {
             float: left;
             width: 30%;
+            min-width: 70px;
             text-align: right;
             margin-right: 3px;
             color: $appPrimaryColor;
         }
+        .value {
+            min-width: 130px;
+            margin-left: 30%;
+        }
         .amount {
             .value {
-                height: 110px;
-                text-align: right;
+                height: 50px;
+                text-align: left;
+                width: 60%;
 
-                .bottle-for-slider {
-                    position: relative;
-                    left: -108px;
-                    top: -1px;
-                    z-index: 501;
-                    pointer-events: none;
+                .percent-label {
+                   margin-left: 5px;
+                }
+
+                .slider {
+                    min-width: 70px !important;
+                    max-width: 120px !important;
+                    margin: auto !important;
+                    margin-top: 5px !important;
                 }
             }
         }
     }
-
-    .slider {
-        position: relative;
-        top: -125px;
-        width: 30px !important;
-        margin: auto !important;
-        height: 105px !important;
-        margin-top: 10px !important;
-    }
-
-    
 
     // .ui-slider-vertical {
     //     width: 30px !important;

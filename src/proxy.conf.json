@@ -1,0 +1,5 @@
+{ "/api": 
+    { "target": "https://barmanager-api.azurewebsites.net", 
+        "secure": false
+    }
+}

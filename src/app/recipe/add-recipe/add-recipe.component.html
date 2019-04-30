@@ -1,0 +1,236 @@
+<p-dialog
+    styleClass="add-recipe-modal"
+    header="Add A Recipe"
+    [modal]="true"
+    [draggable]="false"
+    [resizable]="false"
+    [responsive]="true"
+    [closeOnEscape]="false"
+    (onHide)="reset(event)"
+    [(visible)]="visible"
+    [contentStyle]="{'overflow':'visible'}">
+    <form #addRecipeForm="ngForm" class="ui-g">
+        <div class="ui-g-12 top-portion">
+            <div class="ui-g-6 top-portion-left">
+                <span class="ui-float-label ui-g-12">
+                    <input name="recipe-name" id="float-input-name" type="text" pInputText [(ngModel)]="recipe.name"/>
+                    <label for="float-input-name">Recipe Name</label>
+                </span>
+                <span class="ui-float-label ui-g-12">
+                        <input name="recipe-tags" id="float-input-tags" type="text" pInputText [(ngModel)]="recipe.tags"/>
+                        <label for="float-input-tags">Tags</label>
+                    </span>
+                <span class="ui-float-label ui-g-12">
+                    <textarea
+                        [ngModelOptions]="{standalone: true}"
+                        id="float-input-description"
+                        rows="3"
+                        cols="50"
+                        pInputTextarea
+                        maxlength="500"
+                        [(ngModel)]="recipe.description">
+                    </textarea>
+                    <label for="float-input-description">Description</label>
+                </span>
+                <span class="ui-float-label ui-g-12">
+                    <textarea
+                        [ngModelOptions]="{standalone: true}"
+                        id="float-input-instructions"
+                        rows="3"
+                        cols="50"
+                        pInputTextarea
+                        maxlength="500"
+                        [(ngModel)]="recipe.instructions">
+                    </textarea>
+                    <label for="float-input-instructions">Instructions</label>
+                </span>
+            </div>
+            <div class="ui-g-6 top-portion" >
+                <div class="recipe-image-div">
+                    <span class="ui-g-12 recipe-image-header">
+                        Choose a Recipe Image (jpg only)
+                    </span>
+                    <p-fileUpload
+                        class="ui-g-5"
+                        chooseLabel="Browse"
+                        auto="true"
+                        mode="basic"
+                        name="demo[]"
+                        customUpload="true"
+                        (uploadHandler)="this.onUpload($event)"
+                        accept=".jpg"
+                        maxFileSize="1000000">
+                    </p-fileUpload>
+                    <div class="recipe-image-container ui-g-7">
+                        <img
+                            *ngIf="!imgURL"
+                            class="recipe-images"
+                            src="https://bmimages.blob.core.windows.net/recipe-images/placeholder.jpg"/>
+                        <img
+                            *ngIf="imgURL"
+                            class="recipe-images"
+                            src="{{imgURL}}"/>
+                    </div>
+                    
+                </div>
+                <span class="ui-float-label ui-g-12">
+                    <p-dropdown
+                    filter="true"
+                    styleClass="full-dropdown"
+                    name="recipe-category"
+                    [options]="recipeCategories"
+                    [(ngModel)]="recipe.recipeCategory" placeholder="Select a Category" optionLabel="recipeCategoryName"></p-dropdown>
+                </span>
+                <div class="ui-g-12" style="padding-left: 0; padding-bottom: 0;">
+                    <span class="ui-float-label ui-g-9 glass-picker">
+                        <p-dropdown
+                        filter="true"
+                        styleClass="medium"
+                        name="recipe-glass"
+                        [options]="glassList"
+                        [(ngModel)]="recipe.glass"
+                        placeholder="Select a Glass"
+                        optionLabel="glassName">
+                    </p-dropdown>
+                    </span>
+                    <div class="ui-g-3 glass-preview" *ngIf="recipe.glass.glassImage">
+                        <img class="glass-images" src="https://bmimages.blob.core.windows.net/images/glasses/{{recipe.glass.glassImage}}"/>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="ui-g-12">
+            <p-panel styleClass="table-container">
+                <p-header>
+                    <span class="panel-title">Ingredients</span>
+                    <span class="btn-add-ingredient">
+                        <p-button
+                            type="button"
+                            [disabled]="this.ingredientsCount >= 10"
+                            class="add-item-btn"
+                            label="Add Ingredient ({{this.ingredientsCount}})"
+                            (onClick)="AddRow()">
+                        </p-button>
+                    </span>
+                </p-header>
+                <p-table [value]="ingredients">
+                        <ng-template pTemplate="header">
+                            <tr>
+                                <th class="ordering"></th>
+                                <th class="type">Type</th>
+                                <th class="value">Name</th>
+                                <th class="amount">Amount</th>
+                                <th class="action">Action</th>
+                            </tr>
+                        </ng-template>
+                        <ng-template pTemplate="body" rowTrackBy="index" let-index="rowIndex">
+                            <tr [pReorderableRow]="index" [pEditableRow]="ingredient">
+                                <td class="ordering">
+                                    <i class="fa fa-bars" pReorderableRowHandle></i>
+                                </td>
+                                <td class="type">
+                                    <p-dropdown
+                                        [ngModelOptions]="{standalone: true}"
+                                        [options]="ingredientTypes"
+                                        [(ngModel)]="ingredients[index].type">
+                                    </p-dropdown>
+                                </td>
+                                <td>
+                                    <span 
+                                        *ngIf="ingredients[index].type === 0"
+                                        style="font-size: 12px; margin-left:5px;">
+                                        Select a type to view values
+                                    </span>
+                                    <p-dropdown
+                                        *ngIf="ingredients[index].type === 1"
+                                        [ngModelOptions]="{standalone: true}"
+                                        [options]="liquors"
+                                        [(ngModel)]="ingredients[index].alcohol"
+                                        filter="true"
+                                        styleClass="widest"
+                                        optionLabel="alcoholName">
+                                        <ng-template let-item pTemplate="selectedItem">
+                                            <span style="vertical-align:middle; margin-left: .5em">{{item.label}}</span>
+                                        </ng-template>
+                                        <ng-template let-item pTemplate="item">
+                                            <div class="ui-helper-clearfix" style="position: relative;height: 25px;">
+                                                <div style="font-size:14px;float:right;margin-top:4px">{{item.label}}</div>
+                                            </div>
+                                        </ng-template>
+                                    </p-dropdown>
+                                    <p-dropdown
+                                        *ngIf="ingredients[index].type === 2"
+                                        [ngModelOptions]="{standalone: true}"
+                                        [options]="mixers"
+                                        [(ngModel)]="ingredients[index].mixer"
+                                        filter="true"
+                                        styleClass="widest"
+                                        optionLabel="mixerName">
+                                        <ng-template let-item pTemplate="selectedItem">
+                                            <span style="vertical-align:middle; margin-left: .5em">{{item.label}}</span>
+                                        </ng-template>
+                                        <ng-template let-item pTemplate="item">
+                                            <div class="ui-helper-clearfix" style="position: relative;height: 25px;">
+                                                <div style="font-size:14px;float:right;margin-top:4px">{{item.label}}</div>
+                                            </div>
+                                        </ng-template>
+                                    </p-dropdown>
+                                    <p-dropdown
+                                        *ngIf="ingredients[index].type === 3"
+                                        [ngModelOptions]="{standalone: true}"
+                                        [options]="garnishes"
+                                        [(ngModel)]="ingredients[index].garnish"
+                                        filter="true"
+                                        styleClass="widest"
+                                        optionLabel="garnishName">
+                                        <ng-template let-item pTemplate="selectedItem">
+                                            <span style="vertical-align:middle; margin-left: .5em">{{item.label}}</span>
+                                        </ng-template>
+                                        <ng-template let-item pTemplate="item">
+                                            <div class="ui-helper-clearfix" style="position: relative;height: 25px;">
+                                                <div style="font-size:14px;float:right;margin-top:4px">{{item.label}}</div>
+                                            </div>
+                                        </ng-template>
+                                    </p-dropdown>
+                                </td>
+                                <td>
+                                    <span class="ui-g-5">
+                                        <input 
+                                            styleClass="amount-input"
+                                            [ngModelOptions]="{standalone: true}"
+                                            id="float-input-name"
+                                            type="text"
+                                            pInputText
+                                            [(ngModel)]="ingredients[index].amount"/>
+                                    </span>
+                                    <span class="ui-g-6" *ngIf="ingredients[index].type !== 3">
+                                        <p-dropdown 
+                                            styleClass="small"
+                                            [ngModelOptions]="{standalone: true}"
+                                            [options]="measurements"
+                                            [(ngModel)]="ingredients[index].measure">
+                                        </p-dropdown>
+                                    </span>
+                                </td>
+                                <td class="action">
+                                    <button
+                                        pButton
+                                        class="ui-button-danger"
+                                        styleClass="delete-btn"
+                                        type="button"
+                                        icon="pi pi-trash"
+                                        iconPos="center"
+                                        (click)="deleteRow(index)">
+                                    </button>
+                                </td>
+                            </tr>
+                        </ng-template>  
+                    </p-table>
+            </p-panel>
+        </div>
+        <div class="ui-g-12">
+            <p-button class="save-recipe-btn ui-button-primary" label="Save and Close" (click)="saveRecipe(true)"></p-button>
+            <p-button class="save-recipe-btn ui-button-secondary" label="Save and Create New" (click)="saveRecipe(false)"></p-button>
+        </div>
+    </form>
+</p-dialog> 

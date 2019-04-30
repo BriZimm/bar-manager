@@ -44,13 +44,12 @@
                     <div class="amount">
                         <div class="label">Amount:</div>
                         <div class="value">
-                            <img class="bottle-for-slider" src="../../assets/images/bottle-slider.gif" unselectable="on"/>
+                            <span class="percent-label">{{item.itemAmountPercent}}%</span>
                             <p-slider 
                                 styleClass="slider"
                                 [(ngModel)]="item.itemAmountPercent"
                                 [min]="0"
                                 [max]="100"
-                                orientation="vertical"
                                 animate=true>
                             </p-slider>
                         </div>
