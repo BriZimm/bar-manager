@@ -2,13 +2,14 @@ import { IGlass } from './IGlass';
 import { IIngredientItem } from './IIngredientItem';
 import { IRecipeCategory } from './IRecipeCategory';
 import { IIngredient } from './IIngredient';
+import { ITag } from './ITag';
 
 export interface IRecipe {
     id: number;
     name: string;
     recipeImage: string;
     recipeCategory: IRecipeCategory;
-    tags?: string;
+    tags?: ITag[];
     glass: IGlass;
     description: string;
     instructions: string;

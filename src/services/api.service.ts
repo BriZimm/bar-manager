@@ -10,6 +10,7 @@ import { IInventoryCategory } from 'src/shared/classes/IInventoryCategory';
 import { IGarnish } from 'src/shared/classes/IGarnish';
 import { IAlcohol } from 'src/shared/classes/IAlcohol';
 import { IRecipe } from 'src/shared/classes/IRecipe';
+import { ITag } from 'src/shared/classes/ITag';
 
 @Injectable({
     providedIn: 'root'
@@ -136,9 +137,18 @@ export class ApiService {
     }
 
 // Mixers
-    // API: GET /RecipeCategories
+    // API: GET /Mixers
     public getAllMixers(): Observable<IMixer[]> {
         return this.http.get<IMixer[]>(this.baseUrl + '/api/mixer', this.httpOptions)
+                .pipe(
+                    retry(1),
+                    catchError(this.handleError)
+                );
+    }
+
+    // API: GET /MixerById
+    public getMixerById(mixerId: number): Observable<IMixer> {
+        return this.http.get<IMixer>(this.baseUrl + '/api/mixer/' + mixerId, this.httpOptions)
                 .pipe(
                     retry(1),
                     catchError(this.handleError)
@@ -154,6 +164,16 @@ export class ApiService {
                     catchError(this.handleError)
                 );
     }
+
+    // API: GET /GarnishById
+    public getGarnishById(garnishId: number): Observable<IGarnish> {
+        return this.http.get<IGarnish>(this.baseUrl + '/api/garnish/' + garnishId, this.httpOptions)
+                .pipe(
+                    retry(1),
+                    catchError(this.handleError)
+                );
+    }
+
 
 // Recipes
     // API: GET /Recipes
@@ -177,6 +197,16 @@ export class ApiService {
     // API: POST /Recipes
     public createRecipe(recipe: IRecipe): Observable<IRecipe[]> {
         return this.http.post<IRecipe[]>(this.baseUrl + '/api/recipe', JSON.stringify(recipe), this.httpOptions)
+                .pipe(
+                    retry(1),
+                    catchError(this.handleError)
+                );
+    }
+
+    // TagList
+    // API: GET /TagList
+    public getTagList(): Observable<ITag[]> {
+        return this.http.get<ITag[]>(this.baseUrl + '/api/taglist', this.httpOptions)
                 .pipe(
                     retry(1),
                     catchError(this.handleError)

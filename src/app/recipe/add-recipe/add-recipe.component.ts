@@ -12,7 +12,8 @@ import { IAlcohol } from 'src/shared/classes/IAlcohol';
 import { IIngredient } from 'src/shared/classes/IIngredient';
 import { mergeMap } from 'rxjs/operators';
 import { BlobService, UploadParams, UploadConfig } from 'angular-azure-blob-service'
-import { Observable, of } from 'rxjs';
+import { Observable, of, zip } from 'rxjs';
+import { ITag } from 'src/shared/classes/ITag';
 
 const Config: UploadParams = {
     // tslint:disable-next-line: max-line-length
@@ -39,6 +40,9 @@ export class AddRecipeComponent implements OnInit {
     selectedGlass: IGlass;
     ingredientTypes: SelectItem[] = [];
     measurements: SelectItem[] = [];
+    tagList: ITag[];
+    tags: ITag[];
+    results: ITag[];
     liquorCount: number;
     mixerCount: number;
     garnishCount: number;
@@ -67,6 +71,7 @@ export class AddRecipeComponent implements OnInit {
 
     reset() {
         this.blankForm();
+        this.ingredientsCount = 0;
     }
 
     initializeFields() {
@@ -100,9 +105,10 @@ export class AddRecipeComponent implements OnInit {
             .subscribe((data: IGarnish[]) => {
                 if (data) {
                     this.garnishes = data.sort((a, b) => a.garnishName.localeCompare(b.garnishName));
-                    this.AddRow();
                 }
             });
+
+        this.apiService.getTagList().subscribe(list => this.tagList = list);
     }
 
     private initializeValues() {
@@ -167,6 +173,7 @@ export class AddRecipeComponent implements OnInit {
 
     saveRecipe(close: boolean) {
         if (this.recipe) {
+            this.addTags();
             this.buildIngredientData();
             this.apiService
                 .createRecipe(this.recipe)
@@ -178,6 +185,10 @@ export class AddRecipeComponent implements OnInit {
                     }
                 });
         }
+    }
+
+    addTags() {
+        this.recipe.tags = this.tags;
     }
 
     buildIngredientData() {
@@ -263,11 +274,24 @@ export class AddRecipeComponent implements OnInit {
             {label: 'oz', value: 'oz'},
             {label: 'ml', value: 'ml'},
             {label: 'dash', value: 'dash'},
+            {label: 'splash', value: 'splash'},
             {label: 'part', value: 'part'}
         ];
     }
 
+    tagSearch(event) {
+        return this.apiService.getTagList()
+            .toPromise()
+            .then(res => res.filter(x => x.tag.includes(event.query)))
+            .then(tags => {
+                if (tags.length > 0) {
+                    this.results = tags;
+                }
+            });
+    }
+
     show() {
+        this.AddRow();
         this.visible = true;
     }
 

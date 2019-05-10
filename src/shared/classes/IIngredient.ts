@@ -3,8 +3,11 @@ export interface IIngredient {
     recipeID?: number;
     type: number;
     alcoholID?: number;
+    alcoholName?: string;
     mixerID?: number;
+    mixerName?: string;
     garnishID?: number;
+    garnishName?: string;
     amount: string;
     measure: string;
 }

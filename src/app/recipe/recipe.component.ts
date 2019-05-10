@@ -5,6 +5,7 @@ import { ApiService } from 'src/services/api.service';
 import { mergeMap } from 'rxjs/operators';
 import { IIngredient } from 'src/shared/classes/IIngredient';
 import { ViewRecipeComponent } from './view-recipe/view-recipe.component';
+import { IIngredientItem } from 'src/shared/classes/IIngredientItem';
 
 @Component({
 // tslint:disable-next-line: component-selector

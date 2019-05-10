@@ -1,13 +1,70 @@
 <p-dialog
+    *ngIf="recipe"
     styleClass="view-recipe-modal"
-    header="View Recipe"
+    header="{{recipe.name}}"
     [modal]="true"
     [draggable]="false"
     [resizable]="false"
     [responsive]="true"
     [closeOnEscape]="false"
-    (onHide)="reset(event)"
     [(visible)]="visible"
     [contentStyle]="{'overflow':'visible'}">
-    Test
+    <div class="ui-g">
+        <div class="ui-g-9">
+            <div class="description">
+                <h3>Description</h3>
+                {{recipe.description}}
+            </div>
+            <div class="ingredients-title">
+                <h3>Ingredients in a {{recipe.name}}</h3>
+            </div>
+            <ul class="ingredient-list" *ngFor="let ingredient of recipe.ingredients">
+                <li *ngIf="ingredient.alcoholName">
+                    <div class="ingredient">
+                        <div class="amount">{{ingredient.amount}}</div>
+                        <div class="measure">{{ingredient.measure}}</div>
+                        <div class="name">{{ingredient.alcoholName}}</div>
+                    </div>
+                </li>
+                <li *ngIf="ingredient.mixerName">
+                    <div class="ingredient">
+                        <div class="amount">{{ingredient.amount}}</div>
+                        <div class="measure">{{ingredient.measure}}</div>
+                        <div class="name">{{ingredient.mixerName}}</div>
+                    </div>
+                </li>
+                <li *ngIf="ingredient.garnishName">
+                    <div class="ingredient">
+                        <div class="amount">{{ingredient.amount}}</div>
+                        <!-- <div class="measure">{{ingredient.measure}}</div> -->
+                        <div class="name">{{ingredient.garnishName}}</div>
+                    </div>
+                </li>
+            </ul>
+            <div class="instructions">
+                <h3>Instructions</h3>
+                {{recipe.instructions}}
+            </div>
+        </div>
+        <div class="ui-g-3">
+            <div class="recipe-image-container">
+                <img class="recipe-images" src="https://bmimages.blob.core.windows.net/recipe-images/{{recipe.recipeImage}}"/>
+            </div>
+            <div>
+                <h3>Tags</h3>
+                <span *ngFor="let recipeTag of recipe.tags; let i = index">
+                    {{recipeTag.tagName}}<span *ngIf="recipe.tags.length - 1 > i">,&nbsp;</span>
+                </span>
+            </div>
+            <div>
+                <h3>Category</h3>
+                <label>{{recipe.recipeCategory.recipeCategoryName}}</label>
+            </div>
+            <div>
+                <h3>Glass</h3>
+                <img *ngIf="recipe.glass" class="glass-images" src="https://bmimages.blob.core.windows.net/images/glasses/{{recipe.glass.glassImage}}"/>
+                <label *ngIf="recipe.glass">{{recipe.glass.glassName}}</label>
+            </div>
+        </div>
+    </div>
 </p-dialog> 

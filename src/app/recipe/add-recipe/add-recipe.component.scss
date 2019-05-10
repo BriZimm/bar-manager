@@ -27,6 +27,23 @@ bm-add-recipe {
         z-index: 5000;
     }
 
+    .ui-autocomplete-input-token{
+        font-size: 1em !important;
+        word-wrap: break-word !important;
+    }
+
+    .ui-autocomplete-list-item {
+        font-size: 12px !important;
+    }
+
+    .ui-autocomplete-token-label {
+        margin-right: 1.4em !important;
+    }
+
+    .ui-autocomplete-token {
+        font-size: 0.8em !important;
+    }
+
     .recipe-image-header {
         font: {
             size: 13px;
@@ -161,8 +178,13 @@ bm-add-recipe {
         font-weight: bold;
     }
 
+    .ingredients-container {
+        overflow-y: scroll;
+    }
+
     .btn-add-ingredient {
         float: right;
+        margin-bottom: 10px;
     }
 
     .ui-button.ui-button-icon-only {

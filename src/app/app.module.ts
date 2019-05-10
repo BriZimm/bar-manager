@@ -15,6 +15,7 @@ import { FormsModule } from '@angular/forms';
 import { AddRecipeComponent } from './recipe/add-recipe/add-recipe.component';
 import { ButtonModule } from 'primeng/button';
 import { DialogModule } from 'primeng/dialog';
+import { AutoCompleteModule } from 'primeng/autocomplete';
 import { DropdownModule } from 'primeng/dropdown';
 import { HttpClientModule } from '@angular/common/http';
 import { InputTextModule } from 'primeng/inputtext';
@@ -52,6 +53,7 @@ import { ViewRecipeComponent } from './recipe/view-recipe/view-recipe.component'
     MenuModule,
     InputTextModule,
     InputTextareaModule,
+    AutoCompleteModule,
     DropdownModule,
     ButtonModule,
     LiquorDbModule,
